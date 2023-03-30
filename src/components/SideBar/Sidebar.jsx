@@ -1,16 +1,23 @@
 import React from 'react';
+import Bookmark from '../Bookmark/Bookmark';
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+    const bookmarks = props.bookmark
+    
+
     return (
-        <div className='p-5'>
+        <div className='p-5 sticky'>
             <div className='m-4 p-4  bg-info text-center rounded-md text-white'>
                 <p>Time spent on reading</p>
             </div>
             <div className='bg-slate-300 p-4 rounded-md'>
-                <h2>Bookmarked Blogs : 8</h2>
-                <div className='my-4 p-4 font-medium bg-secondary rounded-md text-white'>
-                    <h2>Master Microsoft Power Platform and Become an In-Demand!</h2>
-                </div>
+                <h2>Bookmarked Blogs : {bookmarks.length ? bookmarks.length : 0}</h2>
+                {
+                    bookmarks.map(bookmark => <Bookmark
+                    key={bookmark.id}
+                    bookmark={bookmark}
+                    ></Bookmark>)
+                }
             </div>
         </div>
     );

@@ -4,6 +4,11 @@ import Sidebar from '../SideBar/Sidebar';
 
 const HomePage = () => {
     const [posts, setPosts] = useState([])
+    const [bookmark, setBookmark] = useState([])
+    const addToBookmark = (post) => {
+        const newBookmark = [...bookmark, post]
+        setBookmark(newBookmark)
+    }
     useEffect(() => {
         fetch('data.json')
         .then(res => res.json())
@@ -11,17 +16,20 @@ const HomePage = () => {
     }, [])
 
     return (
-        <div className='grid lg:grid-cols-3 m-5'>
+        <div className='grid lg:grid-cols-3 m-5 '>
             <div className='col-span-2'>
             {
                 posts.map(post => <PostContainer
                 key={post.id}
                 post={post}
+                addToBookmark={addToBookmark}
                 ></PostContainer>)
             }
             </div>
             <div>
-            <Sidebar></Sidebar>
+            <Sidebar
+            bookmark={bookmark}
+            ></Sidebar>
             </div>
         </div>
     );
