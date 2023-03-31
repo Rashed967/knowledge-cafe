@@ -5,7 +5,7 @@ import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import HomePage from './components/HomePage/HomePage'
 import Blog from './components/Blog/Blog'
-
+import { ToastContainer } from 'react-toastify';
 function App() {
 
 
@@ -14,6 +14,7 @@ function App() {
        <Navbar></Navbar>
        <HomePage></HomePage>
        <Blog></Blog>
+       <ToastContainer />
     </div>
   )
 }

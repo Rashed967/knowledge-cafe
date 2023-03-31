@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookBookmark } from '@fortawesome/free-solid-svg-icons'
 
 
+
 const PostContainer = (props) => {
     const {picture, coverImg, profilePic, name, registered, title, age, readingTime} = props.post
     const addToBookmark =  props.addToBookmark
@@ -27,12 +28,16 @@ const PostContainer = (props) => {
     }
 
     const dayAgo = dayDiff(dayInMili)
-    console.log(dayAgo)
+
+
+    
     
 
 
     return (
+        
         <div className="card card-compact bg-base-100 shadow-xl my-4">
+            
   <figure><img className='w-full rounded-md' src={coverImg} alt="Shoes" /></figure>
   <div className="card-body">
     <div className='flex justify-between'>
@@ -54,6 +59,7 @@ const PostContainer = (props) => {
         <a onClick={() => addMarkAsRead(props.post)} className='text-blue-700 font-semibold' href="#">Mark as read</a>
     </div>
   </div>
+  
 </div>
     );
 };
