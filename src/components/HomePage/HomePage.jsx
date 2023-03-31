@@ -6,6 +6,7 @@ const HomePage = () => {
     const [posts, setPosts] = useState([])
     const [bookmark, setBookmark] = useState([])
     const [markAsRead, setMarkAsRead] = useState([])
+    const [totalReadingTime, setTotalReadingTime] = useState(0)
 
 
     const addToBookmark = (post) => {
@@ -14,8 +15,15 @@ const HomePage = () => {
     }
 
     const addMarkAsRead = post =>{
-        
+        const newMarkAsRead = [...markAsRead, post]
+        setMarkAsRead(newMarkAsRead)
+        const sum = newMarkAsRead.reduce(
+            (accumulator, currentValue) => accumulator + currentValue.readingTime,
+            0,
+          );
+          setTotalReadingTime(sum)
     } 
+
 
     useEffect(() => {
         fetch('data.json')
@@ -31,12 +39,15 @@ const HomePage = () => {
                 key={post.id}
                 post={post}
                 addToBookmark={addToBookmark}
+                addMarkAsRead={addMarkAsRead}
+                
                 ></PostContainer>)
             }
             </div>
             <div>
             <Sidebar
             bookmark={bookmark}
+            totalReadingTime = {totalReadingTime}
             ></Sidebar>
             </div>
         </div>

@@ -7,6 +7,7 @@ import { faBookBookmark } from '@fortawesome/free-solid-svg-icons'
 const PostContainer = (props) => {
     const {picture, coverImg, profilePic, name, registered, title, age, readingTime} = props.post
     const addToBookmark =  props.addToBookmark
+    const addMarkAsRead = props.addMarkAsRead
     return (
         <div className="card card-compact bg-base-100 shadow-xl my-4">
   <figure><img className='w-full rounded-md' src={coverImg} alt="Shoes" /></figure>
@@ -27,7 +28,7 @@ const PostContainer = (props) => {
     </div>
     <h2 className="card-title">{title}</h2>
     <div className="card-actions justify-start">
-        <a  className='text-blue-700 font-semibold' href="#">Mark as read</a>
+        <a onClick={() => addMarkAsRead(props.post)} className='text-blue-700 font-semibold' href="#">Mark as read</a>
     </div>
   </div>
 </div>
