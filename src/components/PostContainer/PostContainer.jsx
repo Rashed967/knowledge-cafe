@@ -5,7 +5,7 @@ import { faBookBookmark } from '@fortawesome/free-solid-svg-icons'
 
 
 const PostContainer = (props) => {
-    const {picture, coverImg, profilePic, name, registered, title, age} = props.post
+    const {picture, coverImg, profilePic, name, registered, title, age, readingTime} = props.post
     const addToBookmark =  props.addToBookmark
     return (
         <div className="card card-compact bg-base-100 shadow-xl my-4">
@@ -20,7 +20,7 @@ const PostContainer = (props) => {
             </div>
         </div>
         <div>
-            <p>Reading Time :
+            <p>Reading Time : {readingTime} min
                 <span onClick={() => addToBookmark(props.post)} className='ml-2 cursor-pointer'><FontAwesomeIcon icon={faBookBookmark} /></span>
             </p>
         </div>

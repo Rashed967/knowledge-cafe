@@ -5,10 +5,18 @@ import Sidebar from '../SideBar/Sidebar';
 const HomePage = () => {
     const [posts, setPosts] = useState([])
     const [bookmark, setBookmark] = useState([])
+    const [markAsRead, setMarkAsRead] = useState([])
+
+
     const addToBookmark = (post) => {
         const newBookmark = [...bookmark, post]
         setBookmark(newBookmark)
     }
+
+    const addMarkAsRead = post =>{
+        
+    } 
+
     useEffect(() => {
         fetch('data.json')
         .then(res => res.json())
