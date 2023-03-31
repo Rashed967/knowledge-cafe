@@ -8,6 +8,7 @@ const HomePage = () => {
     const [markAsRead, setMarkAsRead] = useState([])
     const [totalReadingTime, setTotalReadingTime] = useState(0)
 
+    
 
     const addToBookmark = (post) => {
         const newBookmark = [...bookmark, post]
